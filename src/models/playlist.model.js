@@ -6,7 +6,7 @@ import db from "../config/db.js";
 export const findAll = async () => {
   // 🐛 BUG 4 : est-ce que le nom des champs correspond existe ?
   const [rows] = await db.query(
-    "SELECT id, name, description, is_public, user_id FROM playlists WHERE is_public = 1"
+    "SELECT id, title, description, is_public, user_id FROM playlists WHERE is_public = 1"
   );
   return rows;
 };

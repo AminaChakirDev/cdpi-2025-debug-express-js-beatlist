@@ -15,8 +15,10 @@ export const getOne = async (req, res, next) => {
 };
 
 export const createPlaylist = async (req, res, next) => {
-  const user_id = 1; // simulé — sera remplacé par req.user.id en Phase 2
-  const id = await PlaylistService.createOne({ ...req.body, user_id });
+  const id = await PlaylistService.createOne({
+    ...req.body,
+    user_id: req.user.id,
+  });
   res.status(201).json({ id, ...req.body });
 };
 
